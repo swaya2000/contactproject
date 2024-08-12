@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="container">
+    <table class="table table-bordered table-active">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Place</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for i in cont %}
+            <tr>
+                <td>{{i.user.id}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.address}}</td>
+                <td>{{i.place}}</td>
+                <td>
+                    <a href="{% url 'update_view' user.id %}" class="btn btn-dark">Update</a>
+                    <a href="{% url 'delete_view' user.id %}" class="btn btn-dark">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
